@@ -1,3 +1,8 @@
+# Use
+
+1. Add DB Info to **.env** file
+2. Use **php artisan migrate** to create database tables 
+
 # Fisdap Case Study – PHP Developer
 
 ## Before you start
