@@ -187,8 +187,8 @@ app.controller('submitTaskCtrl', function($scope, $http) {
                         '<div class="tash-desc-list desc' + value.id + '">' + value.task_description + '</div>' +
                         '<div class="task-options"><div class="option-button edit-task" data-value="' + value.id + '"><i class="fa fa-pencil-square-o"></i></div><div class="option-button trash-button" data-value="' + value.id + '"><i class="fa fa-trash-o"></i></div>' + 
                         '<div class="pull-right">' + 
-                        '   <div class="option-button move" data-type="left" data-direction="' + value.status_id + '" data-value="' + value.id + '"><i class="fa fa-arrow-left"></i></div>' +
-                        '   <div class="option-button move" data-type="right" data-direction="' + value.status_id + '" data-value="' + value.id + '"><i class="fa fa-arrow-right"></i></div></div>' +
+                        '   <div class="option-button move" data-type="left" data-direction="1" data-value="' + value.id + '"><i class="fa fa-arrow-left"></i></div>' +
+                        '   <div class="option-button move" data-type="right" data-direction="1" data-value="' + value.id + '"><i class="fa fa-arrow-right"></i></div></div>' +
                         '</div></div>');
             }
 
