@@ -1,3 +1,9 @@
+# Use
+
+1. Add DB Info to **.env** file
+2. Use **php artisan migrate** to create database tables 
+3. Seeders: **php artisan db:seed --class=StatusTableSeeder** & **php artisan db:seed --class=TaskGroupTableSeeder**
+
 # Fisdap Case Study – PHP Developer
 
 ## Before you start
