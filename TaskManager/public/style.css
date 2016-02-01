@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+
+.container{
+	border: 2px solid #EF5C5E;
+	border-radius: 25px;
+	position: relative;
+	display: block;
+	margin-top: 20px;
+	width: 1345px;
+	height: 565px;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+}
+
+.tm-heading{
+	font-size: 30px;
+	font-weight: bold;
+	color: red;
+	text-align: center;
+	height: 40px;
+	margin-top: 10px;
+}
+
+.tm-task{
+	height: 455px;
+	overflow-y: auto;
+	margin-top: 10px;
+}
+
+.tm-button{
+	border-radius: 12px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 16px;
+	color: #FFF;
+	background-color: #1CB924;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
+
+.tm-button:hover{
+	color: black;
+}
+
+table th{
+	width: 290px;
+	height: 50px;
+	text-align: center;
+	color: #FFF;
+	background-color: #EF761A;
+	font-size: 18px;
+	border-spacing: 0px;
+}
+
+table td{
+	padding-top: 10px;
+	width: 190px;
+	height: 20px;
+	text-align: left;
+	vertical-align:top;
+}
+
+tr:hover {
+	background-color: #BDB7B7;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.add-form{
+	border: 0px solid #000;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.tm-label{
+	width: 100px;
+	border: 0px solid #000;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.tm-input{
+	width: 200px;
+	display: inline-block;
+	text-align: left;
+}
+
+.tm-input-style{
+	width: 200px;
+	border-radius: 12px;
+	border: 1px solid gray;
+}
+
+.tm-control{
+	border: 0px solid #000;
+	margin-top: -5px;
+}
+
+.tm-content{
+	border: 0px solid #000;
+	width: 370px;
+	margin: 30px 0px 0px 500px;
+}
+
+.tm-small-row{
+	width: 100px;
+	text-align: center;
+}
+
+.tm-back{
+	cursor: pointer;
+	text-align: center;
+}
+
+.tm-back a{
+	border-radius: 12px;
+	color: #FFF;
+	background-color: #1CB924;
+	font-size: 18px;
+}
+
+.tm-back a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+.alert-error{
+	color: red;
+	font-size: 12px;
+	width: 120px;
+	text-align: left;
+}
