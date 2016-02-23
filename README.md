@@ -26,11 +26,11 @@ There is a known issue when you have more than 3 series on a screen higher than 
  - [x] As a user, I should be able to display any information related to tasks (and lists, if applicable). As a user, I should be able to delete a task.
  - [x] As a user, I should be able to create a list that can house tasks.
  - [x] As a user, I should be able to assign tasks to a list.
- - As a user, I should be able to assign tasks to MULTIPLE lists.
+ - [ ] As a user, I should be able to assign tasks to MULTIPLE lists.
  - [x] As a user, I should have a basic frontend interface for this project.
  - [x] As a developer, I should be able to extend this project through RESTful API endpoints.
- - As a developer, I should be able to automatically generate API Endpoint documentation for this project when I modify it.
- - As a user, I should be able to generate a tweet every time I complete a task. As a user, I should be able to use twitter to change the state of a task.
+ - [ ] As a developer, I should be able to automatically generate API Endpoint documentation for this project when I modify it.
+ - [ ] As a user, I should be able to generate a tweet every time I complete a task. As a user, I should be able to use twitter to change the state of a task.
 
 ## API Docs
 
