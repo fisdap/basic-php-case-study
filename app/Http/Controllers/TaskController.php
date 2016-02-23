@@ -46,4 +46,20 @@ class TaskController extends Controller
         'message' => 'Task created'
       ]);
     }
+
+    public function delete(Request $request) {
+      $user = Auth::user();
+
+      // Double check that the auth user owns the task
+      if ($user->tasks->contains($request->task_id)) {
+        Task::destroy($request->task_id);
+
+        return response()->json([
+          'status' => 'success',
+          'message' => 'Task deleted'
+        ]);
+      } else {
+        abort(403);
+      }
+    }
 }

@@ -76,7 +76,12 @@
               <hr>
 
               <ul class="list-group">
-                <li class="list-group-item" ng-repeat="task in vm.series[$index].tasks">@{{task.name}}</li>
+                <li class="list-group-item" ng-repeat="task in vm.series[$index].tasks">
+                  @{{task.name}}
+                  <span class="pull-right">
+                    <i class="fa fa-trash-o" ng-click="vm.deleteTask(task.id)"></i>
+                  </span>
+                </li>
               </ul>
             </div>
           </div>

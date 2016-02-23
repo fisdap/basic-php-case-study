@@ -55,6 +55,17 @@
         });
     }
 
+    vm.deleteTask = function(taskId) {
+      if (confirm('Really delete this task?')) {
+        $http.post('/api/v1/tasks/delete', {task_id: taskId})
+          .then(function(response) {
+            if (response.data.status == 'success') {
+              vm.getSeries();
+            }
+          });
+      }  
+    }
+
   }
 
 })();
