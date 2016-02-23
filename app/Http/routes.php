@@ -31,3 +31,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'guest'], function() {
 Route::group(['middleware' => 'auth'], function() {
   Route::get('/dashboard', 'PagesController@getDashboard');
 });
+
+
+Route::group(['prefix' => 'api/v1/series', 'middleware' => 'auth'], function() {
+  Route::get('/', 'SeriesController@series');
+});

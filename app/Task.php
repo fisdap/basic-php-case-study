@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['name', 'description', 'state', 'list_id', 'user_id'];
+    protected $fillable = ['name', 'description', 'state', 'series_id', 'user_id'];
 
-    public function list() {
-      return $this->belongsTo('App\List');
+    public function series() {
+      return $this->belongsTo('App\Series');
     }
 
     public function user() {
