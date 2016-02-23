@@ -26,3 +26,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'guest'], function() {
   Route::post('/login', 'Auth\AuthController@handleLogin');
   Route::post('/register', 'Auth\AuthController@handleRegister');
 });
+
+
+Route::group(['middleware' => 'auth'], function() {
+  Route::get('/dashboard', 'PagesController@getDashboard');
+});
