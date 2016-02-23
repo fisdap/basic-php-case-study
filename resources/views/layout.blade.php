@@ -6,5 +6,6 @@
   </head>
   <body>
     @yield('content')
+    <script src="/dist/bundle.min.js" charset="utf-8"></script>
   </body>
 </html>

@@ -6,12 +6,16 @@ cssnano = require('gulp-cssnano'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer');
 
+// We import the modules first so we have no conflicts
 var js_files = [
-
+  'node_modules/angular/angular.min.js',
+  'resources/assets/js/**/*.module.js',
+  'resources/assets/js/**/*.js'
 ];
 
 var scss_files = [
-
+  'node_modules/bootstrap/dist/css/bootstrap.min.css',
+  'resources/assets/scss/**/*.scss',
 ];
 
 gulp.task('scss', function() {
