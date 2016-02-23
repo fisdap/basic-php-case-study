@@ -15,7 +15,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
-          <li><a href="/new/list">New List</a></li>
           <li><a href="/logout">Logout</a></li>
         @else
           <li><a href="/auth/login">Login</a></li>

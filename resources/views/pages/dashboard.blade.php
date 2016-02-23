@@ -54,19 +54,31 @@
                   <label for="">Task Name *</label>
                   <input type="text" class="form-control" ng-model="vm.newTask[series.id].name">
                 </div>
-                <div class="form-group">
-                  <label for="">Task Description</label>
-                  <textarea class="form-control" ng-model="vm.newTask[series.id].description"></textarea>
+                <div ng-show="vm.newTask[series.id].toggleMore" ng-init="vm.newTask[series.id].toggleMore = false">
+                  <div class="form-group">
+                    <label for="">Task Description</label>
+                    <textarea class="form-control" ng-model="vm.newTask[series.id].description"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="">State</label>
+                    <select class="form-control" ng-model="vm.newTask[series.id].state">
+                      <option value="Open">Open</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Todo">Todo</option>
+                      <option value="Doing">Doing</option>
+                      <option value="Done">Done</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="">State</label>
-                  <select class="form-control" ng-model="vm.newTask[series.id].state">
-                    <option value="Open">Open</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Todo">Todo</option>
-                    <option value="Doing">Doing</option>
-                    <option value="Done">Done</option>
-                  </select>
+                  <a href="#" ng-click="vm.newTask[series.id].toggleMore = !vm.newTask[series.id].toggleMore">
+                    <span ng-show="vm.newTask[series.id].toggleMore">
+                      Hide details
+                    </span>
+                    <span ng-show="!vm.newTask[series.id].toggleMore">
+                      Show More Options
+                    </span>
+                  </a>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary pull-right">Create</button>
