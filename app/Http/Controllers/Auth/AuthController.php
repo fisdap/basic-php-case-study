@@ -95,6 +95,12 @@ class AuthController extends Controller
           'status' => 'success',
           'message' => 'User logged in'
         ]);
+      } else {
+        return response()->json([
+          'status' => 'error',
+          'message' => 'Form errors',
+          'errors' => ['Credentials invalid']
+        ]);
       }
     }
 

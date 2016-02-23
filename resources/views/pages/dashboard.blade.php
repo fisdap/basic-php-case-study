@@ -41,7 +41,7 @@
               <h3 class="text-center panel-title">
                 @{{series.name}}
                 <span class="pull-right">
-                  <i class="fa fa-trash-o" ng-click="vm.deleteSeries(series.id)"></i>
+                  <i class="fa fa-trash-o pointer" ng-click="vm.deleteSeries(series.id)"></i>
                 </span>
               </h3>
             </div>
@@ -94,8 +94,8 @@
                 <li class="list-group-item" ng-repeat="task in vm.series[parentIndex].tasks | filter:{state: stat}" ng-init="vm.showTaskStatus[task.id].show = false; vm.newTaskState[task.id].state = task.state">
                   @{{task.name}}
                   <span class="pull-right">
-                    <i class="fa fa-check" ng-click="vm.showTaskStatus[task.id].show = !vm.showTaskStatus[task.id].show"></i>
-                    <i class="fa fa-trash-o" ng-click="vm.deleteTask(task.id)"></i>
+                    <i class="fa fa-check pointer" ng-click="vm.showTaskStatus[task.id].show = !vm.showTaskStatus[task.id].show"></i>
+                    <i class="fa fa-trash-o pointer" ng-click="vm.deleteTask(task.id)"></i>
                   </span>
 
                   <div ng-show="task.description">
