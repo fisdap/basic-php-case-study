@@ -7,31 +7,22 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Task;
 use Auth;
-use App\Series;
 
-class SeriesController extends Controller
+class TaskController extends Controller
 {
-    public function series() {
-      $user = Auth::user();
-
-      $series = [];
-      foreach ($user->series as $item) {
-        $temp = $item->toArray();
-        $temp['tasks'] = $item->tasks->reverse();
-        $series[] = $temp;
-      }
-
-      return response()->json($series, 200);
-    }
-
     public function create(Request $request) {
       $user = Auth::user();
 
       $errors = [];
 
       if (empty($request->name)) {
-        $errors[] = 'You must provide a name';
+        $errors[] = 'Name is required';
+      }
+
+      if (empty($request->state)) {
+        $errors[] = 'State is required';
       }
 
       if (!empty($errors)) {
@@ -42,14 +33,17 @@ class SeriesController extends Controller
         ]);
       }
 
-      Series::create([
+      Task::create([
         'name' => $request->name,
-        'user_id' => $user->id
+        'description' => $request->description,
+        'state' => $request->state,
+        'user_id' => $user->id,
+        'series_id' => $request->series_id
       ]);
 
       return response()->json([
         'status' => 'success',
-        'message' => 'Series created'
+        'message' => 'Task created'
       ]);
     }
 }

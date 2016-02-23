@@ -35,4 +35,9 @@ Route::group(['middleware' => 'auth'], function() {
 
 Route::group(['prefix' => 'api/v1/series', 'middleware' => 'auth'], function() {
   Route::get('/', 'SeriesController@series');
+  Route::post('/new', 'SeriesController@create');
+});
+
+Route::group(['prefix' => 'api/v1/tasks', 'middleware' => 'auth'], function() {
+  Route::post('/new', 'TaskController@create');
 });
