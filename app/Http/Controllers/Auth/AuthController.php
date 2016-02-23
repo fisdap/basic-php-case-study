@@ -69,6 +69,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Expects 'email', 'password' as params
+     *
+     * Returns errors if any are present, otherwise sets the auth cookie and returns success
+     */
     public function handleLogin(Request $request) {
       $errors = [];
 
@@ -104,6 +109,11 @@ class AuthController extends Controller
       }
     }
 
+    /**
+     * Expects request to contain 'email', 'password', 'password_confirmation'
+     *
+     * Sets auth cookie if no errors, else returns array of errors (strings)
+     */
     public function handleRegister(Request $request) {
       $errors = [];
 

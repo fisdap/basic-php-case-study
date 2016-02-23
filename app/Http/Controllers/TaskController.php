@@ -12,6 +12,30 @@ use Auth;
 
 class TaskController extends Controller
 {
+    /**
+     * Returns array of all of the authenticated users tasks in order of newest first
+     */
+    public function tasks() {
+
+      $user = Auth::user();
+
+      $tasks = [];
+
+      foreach ($user->tasks as $task) {
+        $temp = $task->toArray();
+        $temp['series'] = $task->series->name;
+        $tasks[] = $temp;
+      }
+
+      return response()->json(array_reverse($tasks));
+    }
+
+    /**
+     * Expects 'name', 'state' to be in Request
+     * optional params are 'description'
+     *
+     * Returns errors if errors are present in request data
+     */
     public function create(Request $request) {
       $user = Auth::user();
 
@@ -47,6 +71,10 @@ class TaskController extends Controller
       ]);
     }
 
+    /**
+     * Deletes the task based on the passed ID
+     * Checks to make sure the user owns the task first
+     */
     public function delete(Request $request) {
       $user = Auth::user();
 
@@ -63,6 +91,10 @@ class TaskController extends Controller
       }
     }
 
+    /**
+     * Updates the state of the task
+     * Expects params of task_id and state
+     */
     public function updateState(Request $request) {
       $user = Auth::user();
 

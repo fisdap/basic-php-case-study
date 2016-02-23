@@ -15,7 +15,7 @@ Route::group(['middleware' => 'guest'], function() {
   Route::get('/', function () {
       return view('index');
   });
-  
+
   Route::get('/auth/login', 'Auth\AuthController@getLogin');
   Route::get('/auth/register', 'Auth\AuthController@getRegister');
 });
@@ -40,6 +40,7 @@ Route::group(['prefix' => 'api/v1/series', 'middleware' => 'auth'], function() {
 });
 
 Route::group(['prefix' => 'api/v1/tasks', 'middleware' => 'auth'], function() {
+  Route::get('/', 'TaskController@tasks');
   Route::post('/new', 'TaskController@create');
   Route::post('/delete', 'TaskController@delete');
   Route::post('/state', 'TaskController@updateState');

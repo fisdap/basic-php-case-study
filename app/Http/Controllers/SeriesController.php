@@ -9,9 +9,13 @@ use App\Http\Controllers\Controller;
 
 use Auth;
 use App\Series;
+use App\Task;
 
 class SeriesController extends Controller
 {
+    /**
+     * Returns an array sorted by newest first of series + their tasks
+     */
     public function series() {
       $user = Auth::user();
 
@@ -22,12 +26,13 @@ class SeriesController extends Controller
         $series[] = $temp;
       }
 
-      // Chunking the array server side for now
-      // Should eventually do client side but just for a quick hack
-      // This is so we can have nice bootstrap rows + columns :)
-      return response()->json($series, 200);
+      return response()->json(array_reverse($series), 200);
     }
 
+    /**
+     * Expects a name as a parameter
+     * Creates series attached to user logged in
+     */
     public function create(Request $request) {
       $user = Auth::user();
 
@@ -56,11 +61,17 @@ class SeriesController extends Controller
       ]);
     }
 
+    /**
+     * Expects a series_id param
+     * Deletes all tasks associated with the series
+     * Deletes the series
+     */
     public function delete(Request $request) {
       $user = Auth::user();
 
       // Double check that the auth user owns the task
       if ($user->series->contains($request->series_id)) {
+        Task::where('series_id', $request->series_id)->delete();
         Series::destroy($request->series_id);
 
         return response()->json([
