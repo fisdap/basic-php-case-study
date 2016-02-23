@@ -42,4 +42,5 @@ Route::group(['prefix' => 'api/v1/series', 'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'api/v1/tasks', 'middleware' => 'auth'], function() {
   Route::post('/new', 'TaskController@create');
   Route::post('/delete', 'TaskController@delete');
+  Route::post('/state', 'TaskController@updateState');
 });

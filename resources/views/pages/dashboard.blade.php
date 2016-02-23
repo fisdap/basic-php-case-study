@@ -35,7 +35,7 @@
       </div>
 
       <div class="row">
-        <div class="col-xs-12 col-sm-4" ng-repeat="series in vm.series" ng-init="vm.newTask[series.id] = {}">
+        <div class="col-xs-12 col-sm-4" ng-repeat="series in vm.series" ng-init="vm.newTask[series.id] = {}; parentIndex = $index">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="text-center panel-title">
@@ -94,10 +94,12 @@
 
               <hr>
 
-              <ul class="list-group">
-                <li class="list-group-item" ng-repeat="task in vm.series[$index].tasks">
+              <ul class="list-group" ng-repeat="stat in ['Open', 'Completed', 'Todo', 'Doing', 'Done']">
+                @{{stat}}
+                <li class="list-group-item" ng-repeat="task in vm.series[parentIndex].tasks | filter:{state: stat}" ng-init="vm.showTaskStatus[task.id].show = false; vm.newTaskState[task.id].state = task.state">
                   @{{task.name}}
                   <span class="pull-right">
+                    <i class="fa fa-check" ng-click="vm.showTaskStatus[task.id].show = !vm.showTaskStatus[task.id].show"></i>
                     <i class="fa fa-trash-o" ng-click="vm.deleteTask(task.id)"></i>
                   </span>
 
@@ -106,8 +108,21 @@
                     @{{task.description}}
                   </div>
 
+                  <div ng-show="vm.showTaskStatus[task.id].show">
+                    <div class="form-group">
+                      <label for="">Change Status</label>
+                      <select class="form-control" ng-model="vm.newTaskState[task.id].state" ng-change="vm.updateTaskState(task.id)">
+                        <option value="Open">Open</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Todo">Todo</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Done">Done</option>
+                      </select>
+                    </div>
+                  </div>
                 </li>
               </ul>
+
             </div>
           </div>
         </div>

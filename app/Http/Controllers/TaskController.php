@@ -62,4 +62,23 @@ class TaskController extends Controller
         abort(403);
       }
     }
+
+    public function updateState(Request $request) {
+      $user = Auth::user();
+
+      // Double check that the auth user owns the task
+      if ($user->tasks->contains($request->task_id)) {
+        $task = Task::findOrFail($request->task_id);
+
+        $task->state = $request->state;
+        $task->save();
+
+        return response()->json([
+          'status' => 'success',
+          'message' => 'Task state changed'
+        ]);
+      } else {
+        abort(403);
+      }
+    }
 }

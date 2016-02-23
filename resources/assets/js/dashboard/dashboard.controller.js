@@ -77,6 +77,16 @@
       }
     }
 
+    vm.updateTaskState = function(taskId) {
+      $http.post('/api/v1/tasks/state', {task_id: taskId, state: vm.newTaskState[taskId].state})
+        .then(function(response) {
+          if (response.data.status == 'success') {
+            vm.newTaskState[taskId].show = false;
+            vm.getSeries();
+          }
+        });
+    }
+
   }
 
 })();
