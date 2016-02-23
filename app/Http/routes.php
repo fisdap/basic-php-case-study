@@ -19,3 +19,8 @@ Route::group(['middleware' => 'guest'], function() {
   Route::get('/auth/login', 'Auth\AuthController@getLogin');
   Route::get('/auth/register', 'Auth\AuthController@getRegister');
 });
+
+Route::group(['prefix' => 'api/v1'], function() {
+  Route::post('/login', 'Auth\AuthController@handleLogin');
+  Route::post('/register', 'Auth\AuthController@handleRegister');
+});
