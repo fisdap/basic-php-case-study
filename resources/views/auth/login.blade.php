@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <label for="">Password:</label>
-          <input type="text" ng-model="vm.user.password" class="form-control">
+          <input type="password" ng-model="vm.user.password" class="form-control">
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary pull-right">Log In!</button>

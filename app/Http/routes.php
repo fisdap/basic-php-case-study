@@ -20,7 +20,9 @@ Route::group(['middleware' => 'guest'], function() {
   Route::get('/auth/register', 'Auth\AuthController@getRegister');
 });
 
-Route::group(['prefix' => 'api/v1'], function() {
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+Route::group(['prefix' => 'api/v1', 'middleware' => 'guest'], function() {
   Route::post('/login', 'Auth\AuthController@handleLogin');
   Route::post('/register', 'Auth\AuthController@handleRegister');
 });
