@@ -63,7 +63,18 @@
               vm.getSeries();
             }
           });
-      }  
+      }
+    }
+
+    vm.deleteSeries = function(seriesId) {
+      if (confirm('Really delete this series?')) {
+        $http.post('/api/v1/series/delete', {series_id: seriesId})
+          .then(function(response) {
+            if (response.data.status == 'success') {
+              vm.getSeries();
+            }
+          });
+      }
     }
 
   }

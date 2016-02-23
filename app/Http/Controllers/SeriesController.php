@@ -52,4 +52,20 @@ class SeriesController extends Controller
         'message' => 'Series created'
       ]);
     }
+
+    public function delete(Request $request) {
+      $user = Auth::user();
+
+      // Double check that the auth user owns the task
+      if ($user->series->contains($request->series_id)) {
+        Series::destroy($request->series_id);
+
+        return response()->json([
+          'status' => 'success',
+          'message' => 'Series deleted'
+        ]);
+      } else {
+        abort(403);
+      }
+    }
 }

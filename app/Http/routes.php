@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function() {
 Route::group(['prefix' => 'api/v1/series', 'middleware' => 'auth'], function() {
   Route::get('/', 'SeriesController@series');
   Route::post('/new', 'SeriesController@create');
+  Route::post('/delete', 'SeriesController@delete');
 });
 
 Route::group(['prefix' => 'api/v1/tasks', 'middleware' => 'auth'], function() {

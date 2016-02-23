@@ -3,14 +3,16 @@
 @section('content')
   <div class="wrapper" ng-app="dashboard" ng-controller="DashboardController as vm" ng-init="vm.getSeries()">
     <div class="container">
-      <h1 class="text-center">Your Lists</h1>
+      <h1 class="text-center">Your Series (Lists)</h1>
 
 
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-sm-offset-4">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="text-center panel-title">New Series</h3>
+              <h3 class="text-center panel-title">
+                New Series
+              </h3>
             </div>
             <div class="panel-body">
               <div class="alert alert-danger" ng-show="vm.newSeriesErrors.length != 0">
@@ -36,7 +38,12 @@
         <div class="col-xs-12 col-sm-4" ng-repeat="series in vm.series" ng-init="vm.newTask[series.id] = {}">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="text-center panel-title">@{{series.name}}</h3>
+              <h3 class="text-center panel-title">
+                @{{series.name}}
+                <span class="pull-right">
+                  <i class="fa fa-trash-o" ng-click="vm.deleteSeries(series.id)"></i>
+                </span>
+              </h3>
             </div>
             <div class="panel-body">
               <div class="alert alert-danger" ng-show="vm.newSeriesErrors.length != 0">
@@ -81,7 +88,7 @@
                   </a>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary pull-right">Create</button>
+                  <button type="submit" class="btn btn-primary pull-right">Add Task</button>
                 </div>
               </form>
 
@@ -93,6 +100,12 @@
                   <span class="pull-right">
                     <i class="fa fa-trash-o" ng-click="vm.deleteTask(task.id)"></i>
                   </span>
+
+                  <div ng-show="task.description">
+                    <br>
+                    @{{task.description}}
+                  </div>
+
                 </li>
               </ul>
             </div>
