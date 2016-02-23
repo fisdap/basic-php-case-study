@@ -22,6 +22,9 @@ class SeriesController extends Controller
         $series[] = $temp;
       }
 
+      // Chunking the array server side for now
+      // Should eventually do client side but just for a quick hack
+      // This is so we can have nice bootstrap rows + columns :)
       return response()->json($series, 200);
     }
 

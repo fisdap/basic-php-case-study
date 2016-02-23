@@ -46,11 +46,6 @@
               </h3>
             </div>
             <div class="panel-body">
-              <div class="alert alert-danger" ng-show="vm.newSeriesErrors.length != 0">
-                <p ng-repeat="error in vm.newSeriesErrors">
-                  @{{error}}
-                </p>
-              </div>
               <form class="clearfix" ng-submit="vm.createTask(series.id)" ng-init="vm.newTask[series.id].state = 'Open'; vm.newTask[series.id].errors = []">
                 <div class="alert alert-danger" ng-show="vm.newTask[series.id].errors.length != 0">
                   <p ng-repeat="error in vm.newTask[series.id].errors">
@@ -104,7 +99,7 @@
                   </span>
 
                   <div ng-show="task.description">
-                    <br>
+                    <hr>
                     @{{task.description}}
                   </div>
 
@@ -122,7 +117,6 @@
                   </div>
                 </li>
               </ul>
-
             </div>
           </div>
         </div>

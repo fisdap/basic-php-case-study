@@ -9,6 +9,8 @@ autoprefixer = require('gulp-autoprefixer');
 // We import the modules first so we have no conflicts
 var js_files = [
   'node_modules/angular/angular.min.js',
+  'node_modules/jquery/dist/jquery.min.js',
+  'node_modules/bootstrap/dist/js/bootstrap.min.js',
   'resources/assets/js/**/*.module.js',
   'resources/assets/js/**/*.js'
 ];
