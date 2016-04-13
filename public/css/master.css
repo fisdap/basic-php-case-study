@@ -1,0 +1,17 @@
+.tasks-table tr td:nth-child(1){
+    width:20%;
+}
+.tasks-table tr td:nth-child(3){
+    width:100px;
+    text-align: center;
+}
+
+
+.edit-button {
+    cursor: pointer;
+}
+
+.delete-button {
+    color: firebrick;
+    cursor: pointer;
+}
